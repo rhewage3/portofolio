@@ -47,12 +47,12 @@
                            with critical thinking abilities.</p>
 
                            <div class="tab-titles">
-                                <p class="tab-links active-link">Skills</p>
-                                <p class="tab-links">Certifications</p>
-                                <p class="tab-links">Education</p>
+                                <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                                <p class="tab-links" onclick="opentab('Certifications')">Certifications</p>
+                                <p class="tab-links" onclick="opentab('Education')">Education</p>
                            </div>
 
-                           <div class="tab-contents">
+                           <div class="tab-contents active-tab" id="skills">
                             <ul>
                                 <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
                                 <li><span>Web Development</span><br>Web App Development</li>
@@ -65,11 +65,57 @@
                             </ul>
                            </div>
 
+                           <div class="tab-contents" id="Certifications">
+                            <ul>
+                                <li><span>Block Chain Basics</span><br>Linked In (2022)</li>
+                                <li><span>Block Chain Beyond Basics </span><br>Linked in (2022)</li>
+                                <li><span>Introduction to Quantum Computing</span><br>Linked in (2022)</li>
+                                <li><span>Cyber Security Tools and Cyber Attacks </span><br>IBM (2022)</li>
+                                <li><span>The Fundamentals of Digital Marketing </span><br>Google (2021)</li>
+                                <li><span>Machine Learning A-Z™ Hands-On Python & R In 
+                                    Data Science </span><br>Udemy (2023)</li>
+                                <li><span>Become a PHP Master - CMS Project </span><br> Udemy (2023)</li>
+                                <li><span>What is web 3? </span><br> Linked in (2022)</li>
+                                <li><span>Cybersecurity Awareness   </span><br>Linked in (2022)</li>
+                                
+                            </ul>
+                           </div>
+
+                           <div class="tab-contents" id="Education">
+                            <ul>
+                                <li><span>BEng Software Engineering (UG)</span><br>Informatics Institute of Technology (2021 -2024) </li>
+                                <li><span>BIT – UCSC</span><br>Completed Foundation Level (2021)</li>
+                                <li><span>Asoka Vidyalaya – Colombo 10</span><br>GCE A/L with Chemistry S, Physics S, Math S (2020)<br>GCE O/L with 8(A) Passes (2016)</li>
+                                
+                                
+                            </ul>
+                           </div>
+
                 </div>
             </div>
         </div>
     </div>
     
     
+
+
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+
+            for(tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
 </body>
 </html>
