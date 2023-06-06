@@ -20,23 +20,64 @@ body::-webkit-scrollbar{
     background: #ff004f ;
   } 
 
-  .cv-button{
+.button-container{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    
-    border: 1px solid white;
-    border-radius: 10px;
-  }
+}
 
-  .cv-button a{
-    display: block;
-    margin-bottom: 10px;
-    color: white;
-    text-decoration: none;
+.download-btn{
     
-    }
+    position: relative;
+    padding: 10px 22px;
+    background-color: transparent;
+    border-radius: 6px;
+    color: #ff004f;
+    border: 1px solid #ff004f;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .download-btn {
+    text-decoration: none;
+    color: #ff004f;
+ }
+
+ .download-btn:active{
+    transform: scale(0.96);
+}
+
+.download-btn:hover{
+    background-color: #ff004f;
+    color: white;
+    border: none;
+    transition: 0.5s;
+}
+
+
+.linkedin, .github{
+    margin-left: 10px;
+    position: relative;
+    padding: 10px 20px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.linkedin:hover, .github:hover{
+    border: 1px solid #ff004f;
+    color: #ff004f;
+    transition: 0.5s;
+}
+
+
+
 
 #header{
     width: 100%;
@@ -94,6 +135,7 @@ nav ul li a:hover::after{
 .header-text h1{
     font-size: 60px;
     margin-top: 20px;
+    margin-bottom: 20px;
 
 }
 
