@@ -14,11 +14,11 @@
             <nav>
                 <img src="images/logo-white.png" alt="logo" width="150px" height="150px">
                 <ul id="sidemenu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
                     <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
                 </ul>
                 <i class="fa-solid fa-bars" onclick="openmenu()"></i>
@@ -229,21 +229,22 @@
                     <p> <i class="fa-solid fa-paper-plane"></i>ranvinuh@gmail.com</p>
                     <p><i class="fa-solid fa-phone"></i>(+94)703696400</p>
                     <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href=""><i class="fa-brands fa-twitter"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                        <a href=""><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.instagram.com/r_n_v_n_u/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href=https://twitter.com/ranvinu"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/ranvinu-hewage-5207951bb/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/rhewage3"><i class="fa-brands fa-github"></i></a>
                         <a href=""><i class="fa-brands fa-snapchat"></i></a>
                     </div>
                     <a href="Ranvinu_hewage.pdf" download class="btn btn2">Download CV</a>
                 </div>
                 <div class="contact-right">
-                    <form>
+                    <form name="submit-to-google-sheet">
                         <input type="text"name="Name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                         <button type="submit" class="btn btn2">Submit</button>
                     </form>
+                    <span id="msg"></span>
                 </div>
 
             </div>
@@ -292,5 +293,26 @@
         }
 
     </script>
+
+
+<!-- contact form connecting to the google sheets via appscript -->
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwv4EbVAw3H7Pxh1lsjPcSwTfnoo4_H6tv9OBb20odyiL1Qz8BLxfULdSP7qLOAED5HHg/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg");
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function () {
+                msg.innerHTML = ""
+            },5000)
+            form.reset();
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 </html>
